@@ -16,3 +16,7 @@
 4. Extract the code and data sections from each binary with
    `./extract_fw.py ...`, where `...` is the name of the DPTX firmware
    binary.
+
+
+[ksc]: https://github.com/kaitai-io/kaitai_struct_compiler
+[kspr]: https://github.com/kaitai-io/kaitai_struct_python_runtime
