@@ -23,9 +23,17 @@ that claim, but the code looks like 8051 instructions to me:
    regions.
  - Code binary is 64 kB in size, which implies a 16-bit program counter.
 
+After running one of the code sections through [cpu\_rec][cpu_rec] using
+`binwalk -%`, cpu\_rec identified the code as "Xtensa" rather than 8051.
+I'm inclined to believe this is correct for the following reasons:
+ - cpu\_rec has a corpus of 8051 code and so it would have identified
+   this binary as such if that were the case.
+ - Cadence owns the Xtensa ISA.
+
 
 [edp]: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c?id=70c5f93669249886b151812076509f30569aff80#n450
 [dp]: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/gpu/drm/rockchip/cdn-dp-core.c?id=d471ed04b487c6e66a406bf3763efbfed56baa5b#n65
 [patches]: https://lkml.org/lkml/2017/2/5/20
 [addresses]: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/gpu/drm/rockchip/cdn-dp-reg.h?id=05c00c2f196757cd59d5738ec4d02e365cf9e7a0#n20
 [dptx]: https://ip.cadence.com/ipportfolio/ip-portfolio-overview/interface-ip/display-ip/hd-display-transmitter-controller
+[cpu_rec]: https://github.com/airbus-seclab/cpu_rec
