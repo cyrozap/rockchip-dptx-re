@@ -30,6 +30,10 @@ I'm inclined to believe this is correct for the following reasons:
    this binary as such if that were the case.
  - Cadence owns the Xtensa ISA.
 
+Rockchip has submitted [a patch][sw_link_training] to enable
+kernel-controlled DP link training, and it looks like as part of that
+patch they had to add some register bit definitions.
+
 
 [edp]: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c?id=70c5f93669249886b151812076509f30569aff80#n450
 [dp]: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/gpu/drm/rockchip/cdn-dp-core.c?id=d471ed04b487c6e66a406bf3763efbfed56baa5b#n65
@@ -37,3 +41,4 @@ I'm inclined to believe this is correct for the following reasons:
 [addresses]: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/gpu/drm/rockchip/cdn-dp-reg.h?id=05c00c2f196757cd59d5738ec4d02e365cf9e7a0#n20
 [dptx]: https://ip.cadence.com/ipportfolio/ip-portfolio-overview/interface-ip/display-ip/hd-display-transmitter-controller
 [cpu_rec]: https://github.com/airbus-seclab/cpu_rec
+[sw_link_training]: https://patchwork.freedesktop.org/patch/225185/
