@@ -34,6 +34,13 @@ Rockchip has submitted [a patch][sw_link_training] to enable
 kernel-controlled DP link training, and it looks like as part of that
 patch they had to add some register bit definitions.
 
+The base address for data section appears to be `0x3fff0000`. This was
+found by concatenating the code and data sections together and running
+[rbasefind][rbasefind] on the combined binary. rbasefind works on
+strings, so it couldn't find the base address of the data section, but
+it seems reasonable to assume that the code section is mapped at
+`0x3ffe0000`.
+
 
 [edp]: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c?id=70c5f93669249886b151812076509f30569aff80#n450
 [dp]: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/gpu/drm/rockchip/cdn-dp-core.c?id=d471ed04b487c6e66a406bf3763efbfed56baa5b#n65
@@ -42,3 +49,4 @@ patch they had to add some register bit definitions.
 [dptx]: https://ip.cadence.com/ipportfolio/ip-portfolio-overview/interface-ip/display-ip/hd-display-transmitter-controller
 [cpu_rec]: https://github.com/airbus-seclab/cpu_rec
 [sw_link_training]: https://patchwork.freedesktop.org/patch/225185/
+[rbasefind]: https://github.com/sgayou/rbasefind
