@@ -41,6 +41,14 @@ strings, so it couldn't find the base address of the data section, but
 it seems reasonable to assume that the code section is mapped at
 `0x3ffe0000`.
 
+The binary can be loaded into radare2 by concatenating the code and data
+sections and specifying the base address with `-m`. For example:
+
+```bash
+cat dptx-v0.0.code.bin dptx-v0.0.data.bin > dptx-v0.0.code-and-data.bin
+radare2 -a xtensa -m 0x3ffe0000 -AA dptx-v0.0.code-and-data.bin
+```
+
 
 [edp]: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c?id=70c5f93669249886b151812076509f30569aff80#n450
 [dp]: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/gpu/drm/rockchip/cdn-dp-core.c?id=d471ed04b487c6e66a406bf3763efbfed56baa5b#n65
